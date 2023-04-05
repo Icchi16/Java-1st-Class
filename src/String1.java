@@ -8,7 +8,7 @@ public class String1 {
         char[] result = compareChar(string);
         for (char c: result
              ) {
-            System.out.println(c);
+            System.out.print(c + ", ");
         }
     }
 
