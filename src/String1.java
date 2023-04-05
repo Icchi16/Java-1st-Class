@@ -2,7 +2,7 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class String1 {
     public static void main(String[] args) {
-        String string = "aababcacdeeda2314nnmtgh";
+        String string = "aababcacdeeda2314nnmtgh ku super to";
         for (int i = 0; i < string.length(); i++) {
             if (i == 0) {
                 System.out.print(string.charAt(i) + ", ");
@@ -14,7 +14,7 @@ public class String1 {
                         break;
                     }
                 }
-                if (loopCount == 0) {
+                if (loopCount == 0 && string.charAt(i) != ' ') {
                     System.out.print(string.charAt(i) + ", ");
                 }
             }
