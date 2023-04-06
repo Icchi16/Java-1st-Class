@@ -4,13 +4,14 @@ public class Prime {
     public static void main(String[] args) {
         int max = 20;
         for (byte i = 1; i <= max; i++) {
-            int primeCount = 0;
-            for (byte j = 1; j <= i; j++) {
+            boolean isPrime = true;
+            for (byte j = 2; j < i; j++) {
                 if (i % j == 0) {
-                    primeCount++;
+                    isPrime = false;
+                    break;
                 }
             }
-            if (primeCount == 2 || (primeCount == 1 && i == 1)) {
+            if (isPrime) {
                 System.out.print(i + ", ");
             }
         }

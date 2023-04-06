@@ -7,14 +7,14 @@ public class String1 {
             if (i == 0) {
                 System.out.print(string.charAt(i) + ", ");
             } else {
-                int loopCount = 0;
+                boolean isLoop = false;
                 for (int j = 0; j < i; j++) {
                     if (string.charAt(j)==string.charAt(i)) {
-                        loopCount++;
+                        isLoop = true;
                         break;
                     }
                 }
-                if (loopCount == 0 && string.charAt(i) != ' ') {
+                if (!isLoop && string.charAt(i) != ' ') {
                     System.out.print(string.charAt(i) + ", ");
                 }
             }
