@@ -3,7 +3,7 @@
 public class Prime {
     public static void main(String[] args) {
         int max = 20;
-        for (byte i = 1; i <= max; i++) {
+        for (byte i = 2; i <= max; i++) {
             boolean isPrime = true;
             for (byte j = 2; j < i; j++) {
                 if (i % j == 0) {
