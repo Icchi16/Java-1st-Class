@@ -2,18 +2,22 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Prime {
     public static void main(String[] args) {
-        int max = 20;
-        for (byte i = 2; i <= max; i++) {
+        int maxPrimeCount = 20;
+        int primeCount = 0;
+        int num = 2;
+        while (primeCount <= maxPrimeCount) {
             boolean isPrime = true;
-            for (byte j = 2; j < i; j++) {
-                if (i % j == 0) {
+            for (int i = 2; i < num; i++) {
+                if (num % i == 0) {
                     isPrime = false;
                     break;
                 }
             }
             if (isPrime) {
-                System.out.print(i + ", ");
+                primeCount++;
+                System.out.print(num + ", ");
             }
+            num++;
         }
     }
 }
