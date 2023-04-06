@@ -5,7 +5,7 @@ public class Prime {
         int maxPrimeCount = 20;
         int primeCount = 0;
         int num = 2;
-        while (primeCount <= maxPrimeCount) {
+        while (primeCount < maxPrimeCount) {
             boolean isPrime = true;
             for (int i = 2; i < num; i++) {
                 if (num % i == 0) {
