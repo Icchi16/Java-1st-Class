@@ -1,6 +1,6 @@
 package Session2.StudentManagement;
 
-import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class StudentManagement {
@@ -32,6 +32,7 @@ public class StudentManagement {
                     themStudent();
                     break;
                 case 3:
+                    updateStudent();
                     break;
                 case 4:
                     botStudent();
@@ -126,6 +127,200 @@ public class StudentManagement {
 
     }
 
+    public void updateStudent () {
+        System.out.println("---------------- Update Student ----------------");
+        System.out.println("------------ Xin mời nhập Student ID -----------");
+        Student selectedStudent = null;
+        while (selectedStudent == null) {
+            selectedStudent = findById(Integer.parseInt(scanner.nextLine()));
+        }
+
+        boolean doneUpdate = false;
+        while (!doneUpdate)  {
+        System.out.println("------- Lựa chọn thông tin muốn thay đổi -------");
+        System.out.println("(1)===> Họ và tên -------");
+        System.out.println("(2)===> Giới tính -------");
+        System.out.println("(3)===> Độ tuổi -------");
+        System.out.println("(4)===> Địa chỉ -------");
+        System.out.println("(5)===> Còn sống hay đã... -------");
+
+        Integer selectedOption = null;
+        while (selectedOption == null) {
+            selectedOption = Integer.parseInt(scanner.nextLine());
+            switch (selectedOption) {
+                case 1:
+                    boolean doneNameUpdate = false;
+                    while (!doneNameUpdate) {
+                        System.out.println("---------------- Mời nhập tên mới --------------");
+                        String tempName = scanner.nextLine();
+                        System.out.println("------------- Xác minh bạn muốn đổi: -----------");
+                        System.out.println(selectedStudent.getName() + " ===> " + tempName + " [Y/N]");
+                        boolean confirmed = false;
+                        while (!confirmed) {
+                            String confirm = scanner.nextLine();
+                            if (Objects.equals(confirm, "Y") || Objects.equals(confirm, "y")) {
+                                selectedStudent.setName(tempName);
+                                confirmed = true;
+                                doneNameUpdate = true;
+                                doneUpdate = true;
+                            } else if(Objects.equals(confirm, "N") || Objects.equals(confirm, "n")) {
+                                System.out.println("------------------ Xin mời chọn ----------------");
+                                System.out.println("(1) ===> Nhập tên mới -------");
+                                System.out.println("(2) ===> Quay lại lựa chọn -------");
+                                switch (Integer.parseInt(scanner.nextLine())){
+                                    case 1:
+                                        confirmed = true;
+                                        continue;
+                                    case 2:
+                                        confirmed = true;
+                                        doneNameUpdate = true;
+                                }
+                            } else
+                                System.out.println("------------------ Mời nhập lại ----------------");
+                        }
+                    }
+                    break;
+                case 2:
+                    boolean doneAgeUpdate = false;
+                    while (!doneAgeUpdate) {
+                        System.out.println("---------------- Mời nhập tuổi mới --------------");
+                        int tempAge = Integer.parseInt(scanner.nextLine());
+                        System.out.println("------------- Xác minh bạn muốn đổi: -----------");
+                        System.out.println(selectedStudent.getName() + " ===> " + tempAge + " [Y/N]");
+                        boolean confirmed = false;
+                        while (!confirmed) {
+                            String confirm = scanner.nextLine();
+                            if (Objects.equals(confirm, "Y") || Objects.equals(confirm, "y")) {
+                                selectedStudent.setAge(tempAge);
+                                confirmed = true;
+                                doneAgeUpdate = true;
+                                doneUpdate = true;
+                            } else if(Objects.equals(confirm, "N") || Objects.equals(confirm, "n")) {
+                                System.out.println("------------------ Xin mời chọn ----------------");
+                                System.out.println("(1) ===> Nhập tuổi mới -------");
+                                System.out.println("(2) ===> Quay lại lựa chọn -------");
+                                switch (Integer.parseInt(scanner.nextLine())){
+                                    case 1:
+                                        confirmed = true;
+                                        continue;
+                                    case 2:
+                                        confirmed = true;
+                                        doneAgeUpdate = true;
+                                }
+                            } else
+                                System.out.println("------------------ Mời nhập lại ----------------");
+                        }
+                    }
+                    break;
+                case 3:
+                    boolean doneGenderUpdate = false;
+                    while (!doneGenderUpdate) {
+                        System.out.println("---------------- Mời nhập giới tính mới --------------");
+                        boolean tempGender = Boolean.parseBoolean(scanner.nextLine());
+                        System.out.println("------------- Xác minh bạn muốn đổi: -----------");
+                        System.out.println(selectedStudent.isGender() + " ===> " + tempGender + " [Y/N]");
+                        boolean confirmed = false;
+                        while (!confirmed) {
+                            String confirm = scanner.nextLine();
+                            if (Objects.equals(confirm, "Y") || Objects.equals(confirm, "y")) {
+                                selectedStudent.setGender(tempGender);
+                                confirmed = true;
+                                doneGenderUpdate = true;
+                                doneUpdate = true;
+                            } else if(Objects.equals(confirm, "N") || Objects.equals(confirm, "n")) {
+                                System.out.println("------------------ Xin mời chọn ----------------");
+                                System.out.println("(1) ===> Nhập giới tính mới -------");
+                                System.out.println("(2) ===> Quay lại lựa chọn -------");
+                                switch (Integer.parseInt(scanner.nextLine())){
+                                    case 1:
+                                        confirmed = true;
+                                        continue;
+                                    case 2:
+                                        confirmed = true;
+                                        doneGenderUpdate = true;
+                                }
+                            } else
+                                System.out.println("------------------ Mời nhập lại ----------------");
+                        }
+                    }
+                    break;
+                case 4:
+                    boolean doneAddressUpdate = false;
+                    while (!doneAddressUpdate) {
+                        System.out.println("---------------- Mời nhập tên mới --------------");
+                        String tempAddress = scanner.nextLine();
+                        System.out.println("------------- Xác minh bạn muốn đổi: -----------");
+                        System.out.println(selectedStudent.getName() + " ===> " + tempAddress + " [Y/N]");
+                        boolean confirmed = false;
+                        while (!confirmed) {
+                            String confirm = scanner.nextLine();
+                            if (Objects.equals(confirm, "Y") || Objects.equals(confirm, "y")) {
+                                selectedStudent.setAddress(tempAddress);
+                                confirmed = true;
+                                doneAddressUpdate = true;
+                                doneUpdate = true;
+                            } else if(Objects.equals(confirm, "N") || Objects.equals(confirm, "n")) {
+                                System.out.println("------------------ Xin mời chọn ----------------");
+                                System.out.println("(1) ===> Nhập tên mới -------");
+                                System.out.println("(2) ===> Quay lại lựa chọn -------");
+                                switch (Integer.parseInt(scanner.nextLine())){
+                                    case 1:
+                                        confirmed = true;
+                                        continue;
+                                    case 2:
+                                        confirmed = true;
+                                        doneAddressUpdate = true;
+                                }
+                            } else
+                                System.out.println("------------------ Mời nhập lại ----------------");
+                        }
+                    }
+                    break;
+                case 5:
+                    boolean doneStatusUpdate = false;
+                    while (!doneStatusUpdate) {
+                        System.out.println("---------------- Mời nhập giới tính mới --------------");
+                        boolean tempStatus = Boolean.parseBoolean(scanner.nextLine());
+                        System.out.println("------------- Xác minh bạn muốn đổi: -----------");
+                        System.out.println(selectedStudent.isGender() + " ===> " + tempStatus + " [Y/N]");
+                        boolean confirmed = false;
+                        while (!confirmed) {
+                            String confirm = scanner.nextLine();
+                            if (Objects.equals(confirm, "Y") || Objects.equals(confirm, "y")) {
+                                selectedStudent.setStatus(tempStatus);
+                                confirmed = true;
+                                doneStatusUpdate = true;
+                                doneUpdate = true;
+                            } else if(Objects.equals(confirm, "N") || Objects.equals(confirm, "n")) {
+                                System.out.println("------------------ Xin mời chọn ----------------");
+                                System.out.println("(1) ===> Nhập giới tính mới -------");
+                                System.out.println("(2) ===> Quay lại lựa chọn -------");
+                                switch (Integer.parseInt(scanner.nextLine())){
+                                    case 1:
+                                        confirmed = true;
+                                        continue;
+                                    case 2:
+                                        confirmed = true;
+                                        doneStatusUpdate = true;
+                                }
+                            } else
+                                System.out.println("------------------ Mời nhập lại ----------------");
+                        }
+                    }
+                    break;
+            }
+            }
+        }
+
+
+
+
+
+        System.out.println("---------------- Remove Student ----------------");
+
+    }
+
+
     public void botStudent () {
         System.out.println("---------------- Remove Student ----------------");
         System.out.println("Vui lòng nhập Id học sinh muốn thủ tiêu");
@@ -153,6 +348,8 @@ public class StudentManagement {
                 return student;
             }
         }
+        System.out.println("---------------- Nhập ID không dúng -----------------");
+        System.out.println("--------- Để nghị binh tĩnh đọc lại đề bài ----------");
         return null;
     }
 

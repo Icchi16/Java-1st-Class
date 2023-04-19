@@ -2,6 +2,7 @@ package Session2.StudentManagement;
 
 public class Student {
 //    B1. Đầu tiên cần khai báo thuộc tính
+
     int id;
     String name;
     boolean gender;
