@@ -311,11 +311,6 @@ public class StudentManagement {
             }
             }
         }
-
-
-
-
-
         System.out.println("---------------- Remove Student ----------------");
 
     }
